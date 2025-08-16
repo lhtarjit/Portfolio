@@ -109,7 +109,13 @@ export default function Skills() {
               }}
             >
               {/* Certificate Level Pill */}
-              <span className="absolute top-3 right-3 inline-flex items-center rounded-full bg-green-500 px-2 py-1 text-xs text-white font-normal z-50">
+              <span
+                className={`absolute top-3 right-3 inline-flex items-center rounded-full ${
+                  cert.level === "Verified Role"
+                    ? "bg-blue-600"
+                    : "bg-green-500"
+                }  px-2 py-1 text-xs text-white font-normal z-50`}
+              >
                 {cert.level}
               </span>
 

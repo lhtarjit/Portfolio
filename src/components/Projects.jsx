@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { resumeData } from "../data";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { slideInRight } from "../utils";
 
 const Pill = ({ children }) => (
   <span className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300">
@@ -14,6 +15,11 @@ function TileCard({ p }) {
 
   return (
     <motion.article
+      initial="hidden"
+      whileInView="show"
+      exit="hidden"
+      viewport={{ amount: 0.2 }}
+      variants={slideInRight}
       whileHover={{ scale: 1.02 }}
       className="group relative overflow-hidden rounded-2xl p-1"
     >
@@ -27,18 +33,16 @@ function TileCard({ p }) {
               {p.period}
             </p>
           </div>
-          <div className="flex items-center gap-3 text-sm">
-            {p.link && (
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noreferrer"
-                className="text-accent hover:underline inline-flex items-center gap-2"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
-          </div>
+          {p.link && (
+            <a
+              href={p.link}
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent hover:underline inline-flex items-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
         </div>
 
         <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-300">
@@ -91,9 +95,11 @@ function TileCard({ p }) {
 function JourneyCard({ p }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      initial="hidden"
+      whileInView="show"
+      exit="hidden"
+      viewport={{ amount: 0.2 }}
+      variants={slideInRight}
     >
       <div className="relative pl-8">
         <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-[#3B82F6] ring-4 ring-white dark:ring-zinc-950" />
@@ -151,30 +157,34 @@ export default function Projects({ variant = "tiles", limit }) {
       </div>
 
       {variant === "tiles" ? (
-        <div className="flex flex-col gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((p) => (
-              <TileCard key={p.name} p={p} />
-            ))}
+        <AnimatePresence mode="sync">
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {projects.map((p) => (
+                <TileCard key={p.name} p={p} />
+              ))}
+            </div>
+            {limit && (
+              <div className="text-center">
+                <a
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3B82F6] text-white hover:bg-blue-600"
+                >
+                  See More Projects
+                </a>
+              </div>
+            )}
           </div>
-          <div className="text-center">
-            <a
-              href="/projects"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3B82F6] text-white hover:bg-blue-600"
-            >
-              See More Projects
-            </a>
-          </div>
-        </div>
+        </AnimatePresence>
       ) : (
-        <div className="relative pl-6">
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-[#3B82F6] to-transparent" />
-          <div className="space-y-8">
+        <AnimatePresence mode="sync">
+          <div className="relative pl-6 space-y-8">
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-[#3B82F6] to-transparent" />
             {projects.map((p) => (
               <JourneyCard key={p.name} p={p} />
             ))}
           </div>
-        </div>
+        </AnimatePresence>
       )}
     </section>
   );

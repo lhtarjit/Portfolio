@@ -141,7 +141,7 @@ export const resumeData = {
     {
       name: "UNO Test Prep",
       period: "Jul 2023 – Aug 2023",
-      link: "#",
+      link: "https://unotestprep.com/",
       tech: ["React", "Tailwind CSS", "PhonePe API"],
       image: "/images/projects/unotestprep.jpg",
       highlights: [
@@ -155,7 +155,7 @@ export const resumeData = {
     {
       name: "ZBrain.AI",
       period: "Mar 2023 – Jul 2023",
-      link: "#",
+      link: "https://app.zbrain.ai/",
       tech: ["React", "Tailwind CSS"],
       image: "/images/projects/zbrain.jpg",
       highlights: [

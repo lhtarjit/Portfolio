@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { resumeData } from "../data";
@@ -39,13 +40,14 @@ export default function Hero() {
           viewport={{ amount: 0.3 }}
           className="mt-8 flex flex-wrap gap-3"
         >
-          <motion.a
-            variants={slideInLeft}
-            href="/skills-certifications"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-medium hover:scale-[1.03] transition"
-          >
-            Skills & Certifications <ArrowRight className="w-4 h-4" />
-          </motion.a>
+          <motion.div variants={slideInLeft} className="text-center">
+            <Link
+              to="/skills-certifications"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-medium hover:scale-[1.03] transition"
+            >
+              Skills & Certifications <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
 
           <motion.a
             variants={slideInLeft}

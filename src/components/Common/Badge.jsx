@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ShieldBadge = ({ number = 0, size = 10 }) => {
+const ShieldBadge = ({ number = 0 }) => {
   return (
-    <motion.div className={`relative w-${size} h-${size}`}>
+    <motion.div className={`relative w-10 h-10`}>
       {/* Shield SVG */}
       <svg viewBox="0 0 126.1 128.9" className="w-full h-full">
         {/* Ring Back */}

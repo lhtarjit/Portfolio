@@ -87,7 +87,7 @@ export default function Skills() {
           </h2>
 
           {/* Animated shield badge with floating ring */}
-          <ShieldBadge number={resumeData.certifications.length} size={10} />
+          <ShieldBadge number={resumeData.certifications.length} />
         </div>
       </div>
 

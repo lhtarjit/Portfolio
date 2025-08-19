@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { resumeData } from "../data";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
-import { slideInRight } from "../utils";
+import { slideInLeft, slideInRight } from "../utils";
+import { Link } from "react-router-dom";
 
 const Pill = ({ children }) => (
   <span className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300">
@@ -165,14 +166,22 @@ export default function Projects({ variant = "tiles", limit }) {
               ))}
             </div>
             {limit && (
-              <div className="text-center">
-                <a
-                  href="/projects"
+              // <div className="text-center">
+              //   <a
+              //     href="/projects"
+              //     className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3B82F6] text-white hover:bg-blue-600"
+              //   >
+              //     See More Projects
+              //   </a>
+              // </div>
+              <motion.div variants={slideInLeft} className="text-center">
+                <Link
+                  to="/projects"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3B82F6] text-white hover:bg-blue-600"
                 >
                   See More Projects
-                </a>
-              </div>
+                </Link>
+              </motion.div>
             )}
           </div>
         </AnimatePresence>

@@ -178,6 +178,9 @@ export default function Projects({ variant = "tiles", limit }) {
                 <Link
                   to="/projects"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#3B82F6] text-white hover:bg-blue-600"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 >
                   See More Projects
                 </Link>

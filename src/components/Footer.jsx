@@ -22,24 +22,28 @@ export default function Footer() {
           <Link
             to="/"
             className="text-sm text-zinc-600 dark:text-zinc-300 hover:text-accent transition"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Home
           </Link>
           <Link
             to="/projects"
             className="text-sm text-zinc-600 dark:text-zinc-300 hover:text-accent transition"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Projects
           </Link>
           <Link
             to="/skills-certifications"
             className="text-sm text-zinc-600 dark:text-zinc-300 hover:text-accent transition"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Skills
           </Link>
           <Link
             to="/contact"
             className="text-sm text-zinc-600 dark:text-zinc-300 hover:text-accent transition"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Contact
           </Link>

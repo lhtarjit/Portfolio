@@ -44,6 +44,7 @@ export default function Hero() {
             <Link
               to="/skills-certifications"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-medium hover:scale-[1.03] transition"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               Skills & Certifications <ArrowRight className="w-4 h-4" />
             </Link>

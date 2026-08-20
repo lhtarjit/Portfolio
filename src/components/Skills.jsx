@@ -68,15 +68,11 @@ export default function Skills() {
       </div>
 
       {/* Skills Section */}
-      <motion.div className="grid md:grid-cols-3 gap-6 mb-12">
-        {renderCard(
-          "Languages & Frameworks",
-          resumeData.skills.languagesAndFrameworks,
-          false,
-          0
+      <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {resumeData.skills.categories.map((category, idx) =>
+          renderCard(category.title, category.items, false, idx)
         )}
-        {renderCard("Tools", resumeData.skills.tools, false, 1)}
-        {renderCard("Strengths", resumeData.skills.strengths, true, 2)}
+        {renderCard("Strengths", resumeData.skills.strengths, true, 99)}
       </motion.div>
 
       {/* Certifications Section */}

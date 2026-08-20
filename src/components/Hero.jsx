@@ -15,7 +15,7 @@ import {
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-5xl px-6 sm:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <section className="mx-auto max-w-5xl px-6 sm:px-8 pt-20 pb-10 grid lg:grid-cols-2 gap-10 items-center">
       {/* Left Side (Text) */}
       <motion.div
         variants={leftVariants}
@@ -25,12 +25,32 @@ export default function Hero() {
         viewport={{ amount: 0.3 }}
       >
         <h1 className="text-5xl md:text-6xl font-extrabold text-zinc-900 dark:text-zinc-50 leading-tight">
-          Hi, I’m Arjit — <span className="text-accent">MERN developer.</span>{" "}
-          Crafting clean, scalable apps.
+          Hi, I’m Arjit —{" "}
+          <span className="text-accent">Software developer.</span> Crafting
+          clean, scalable apps.
         </h1>
         <p className="mt-6 max-w-2xl text-zinc-600 dark:text-zinc-300">
           {resumeData.summary}
         </p>
+
+        {/* Skills slide-up */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ amount: 0.3 }}
+          className="mt-8 flex flex-wrap gap-2"
+        >
+          {resumeData.skills.highlighted.map((s) => (
+            <motion.span
+              key={s}
+              variants={slideUp}
+              className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300"
+            >
+              {s}
+            </motion.span>
+          ))}
+        </motion.div>
 
         {/* Buttons slide left → right */}
         <motion.div
@@ -70,7 +90,7 @@ export default function Hero() {
               rel="noreferrer"
               className="text-zinc-700 dark:text-zinc-300 hover:text-accent"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-7 h-7" />
             </a>
             <a
               href={resumeData.contacts.github}
@@ -78,28 +98,9 @@ export default function Hero() {
               rel="noreferrer"
               className="text-zinc-700 dark:text-zinc-300 hover:text-accent"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-7 h-7" />
             </a>
           </motion.div>
-        </motion.div>
-
-        {/* Skills slide-up */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ amount: 0.3 }}
-          className="mt-8 flex flex-wrap gap-2"
-        >
-          {resumeData.skills.languagesAndFrameworks.map((s) => (
-            <motion.span
-              key={s}
-              variants={slideUp}
-              className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              {s}
-            </motion.span>
-          ))}
         </motion.div>
       </motion.div>
 

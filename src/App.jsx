@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-  Link,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";

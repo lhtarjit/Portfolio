@@ -380,7 +380,7 @@ export const resumeData = {
       institute: "Great Learning",
       date: "2023-11-05",
       level: "Beginner",
-      image: "/images/certificates/dsa.png",
+      image: "/images/certificates/javascript-fundamentals.jpg",
     },
     // INFOWIZ Certificates
     {

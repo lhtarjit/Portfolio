@@ -38,7 +38,7 @@ export default function Navbar() {
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `px-3 py-2 rounded-md text-sm hover:text-blue-600 hover:font-bold ${
+                `px-3 py-2  text-sm hover:text-blue-600 hover:font-bold ${
                   isActive
                     ? "font-bold text-blue-600 border-blue-600 border-b " // Active: bold, blue, underlined
                     : "text-zinc-600 dark:text-zinc-300" // Inactive
